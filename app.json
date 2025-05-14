@@ -1,0 +1,95 @@
+{
+  "expo": {
+    "name": "Seu App Name",
+    "slug": "seu-app-slug",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "jsEngine": "jsc",
+    "scheme": "seuapp",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Permitir que o aplicativo acesse a câmera para verificação facial.",
+          "faceDetectorEnabled": true
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Permitir que o aplicativo acesse sua localização para registrar pontos de presença, mesmo quando o aplicativo está em segundo plano.",
+          "locationWhenInUsePermission": "Permitir que o aplicativo acesse sua localização para registrar pontos de presença enquanto você usa o aplicativo.",
+          "locationBackgroundPermission": "Permitir que o aplicativo acesse sua localização em segundo plano para monitoramento contínuo durante o expediente."
+        }
+      ]
+    ],
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A0A18"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.seuapp.id",
+      "associatedDomains": ["applinks:wqrnrxaxwitmkapfmvpl.supabase.co"],
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Precisamos da sua localização para registrar pontos de presença enquanto você usa o aplicativo.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Precisamos da sua localização para registrar pontos de presença, mesmo quando o aplicativo está em segundo plano.",
+        "NSLocationAlwaysUsageDescription": "Precisamos da sua localização para monitoramento contínuo durante o expediente, mesmo quando o aplicativo está em segundo plano.",
+        "NSCameraUsageDescription": "Precisamos da câmera para verificação facial."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0A0A18"
+      },
+      "package": "com.seuapp.id",
+      "permissions": [
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "seuapp",
+              "host": "*"
+            },
+            {
+              "scheme": "https",
+              "host": "wqrnrxaxwitmkapfmvpl.supabase.co",
+              "pathPrefix": "/auth/v1/callback"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "seu-project-id-eas"
+      },
+      "router": {
+        "origin": false
+      }
+    }
+  }
+}
